@@ -1,0 +1,30 @@
+
+<!doctype html>
+<html lang="fr">
+	<head>
+		<meta charset="utf8">
+		<title> first page</title>
+        <link rel="stylesheet" href="exerciceCSS.css">
+        <script language="javascript"> 
+            
+             function saut(id)
+            {
+                document.getElementById(id).style.visibility='hidden'
+                document.write("<a id='saut'><img src='sticker-mario-saut.jpg.png'  /></a>")
+                setTimeout( normal, 100)
+               
+            }
+            function normal(){
+                document.getElementById("saut").style.visibility='hidden'
+                document.getElementById("normal").style.visibility='visible'
+                
+                
+            }
+            
+            </script>
+	</head>
+	<body>
+        <a onclick='saut("normal")' id='normal'><img src='MarioNSMBUDeluxe.png'  /></a>
+       
+	</body>
+</html>
