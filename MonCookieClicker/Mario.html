@@ -9,11 +9,22 @@
             var sauter=false;
             var score= 0;
             var multiplicateur=1;
+            var pieceEtoile=100;
 
-           function Multiplicateur(){
-              return multiplicateur*=2 
+           function multiplicateurGain(){
+               if (score>=pieceEtoile)
+               {
+                score-=pieceEtoile
+                pieceEtoile*=1.5;
+                multiplicateur*=2 ;
+                affichePrixPieceEtoile();
+                afficheCompteur();
+               }
+              
            }
-           
+           function affichePrixPieceEtoile(){
+            document.getElementById('prixPieceEtoile').textContent='Prix : '+pieceEtoile;          
+           }
              function saut()
             {
                
@@ -38,6 +49,9 @@
 
             function compteur(){
                 score += 1 * multiplicateur;
+                afficheCompteur()
+            }
+            function afficheCompteur(){
                 document.getElementById('compteurChiffre').textContent="X"+score;
             }
             
@@ -45,20 +59,35 @@
             
     </head>
     <body>
-        
-        <div class="d-flex justify-content-start">
-             <img src='piece.png' id="compteur"  class='compteur'; /> 
-             <p id='compteurChiffre' class='compteur'></p>
+        <div class='Container gauche'>
+            <div class="d-flex justify-content-start">
+                <img src='piece.png' id="compteur"  class='compteur'; /> 
+                <p id='compteurChiffre' class='compteur'>X 0</p>
+            </div>
+
+            <div class="d-flex justify-content-center">
+                <img src='piece.png' id="piece" ; />
+            </div>
+
+            <div class="d-flex justify-content-center">
+                <img src='block.png' class="block" ; />
+            </div>
+
+            <div class="d-flex justify-content-center">  
+                <img src='MarioNSMBUDeluxe.png' class="Mario" id='icon' onclick=saut(); />
+            </div>
         </div>
-        <div class="d-flex justify-content-center">
-            <img src='piece.png' id="piece" ; />
+
+        <div class='ContainerPetit droite'>
+            <img src='StarCoin.png' class="bonus" id='StarCoin' onclick=multiplicateurGain(); />
+            <p id='prixPieceEtoile'>Prix : 100</p>
         </div>
-        <div class="d-flex justify-content-center">
-            <img src='block.png' class="block" ; />
-        </div>
-        <div class="d-flex justify-content-center">  
-            <img src='MarioNSMBUDeluxe.png' class="Mario" id='icon' onclick=saut(); />
-        </div>
+      
+           
+          
+           
+       
+
 
     </body>
 </html>
