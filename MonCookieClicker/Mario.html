@@ -3,39 +3,62 @@
     <head>
         <meta charset="utf8">
         <title> first page</title>
-        <link rel="stylesheet" href="exerciceCSS.css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <link rel="stylesheet" href="style.css">
         <script language="javascript"> 
             var sauter=false;
             var score= 0;
+            var multiplicateur=1;
 
-             function saut(sauter)
+           function Multiplicateur(){
+              return multiplicateur*=2 
+           }
+           
+             function saut()
             {
                
-                if (sauter==false){
-                    console.log('est entré dans le if '+sauter)
+                if (!sauter){
                     document.getElementById('icon').src='sticker-mario-saut.jpg.png';
-                    sauter=true;
-                    score+=1;
-                    setTimeout(normal(sauter), 2000);
-       
+                    document.getElementById('piece').style.visibility="visible";
+                    sauter = !sauter;
+                    compteur()
+                    setTimeout(normal, 200);
                                  
                 }
-              console.log('est hors du if '+sauter);
-              console.log(score);
+    
             }
 
-            function normal(sauter)
+            function normal()
             {
-                console.log('est dans normal '+sauter)
                 document.getElementById('icon').src='MarioNSMBUDeluxe.png';
+                document.getElementById('piece').style.visibility="hidden";
                 sauter=false;
 
             }
+
+            function compteur(){
+                score += 1 * multiplicateur;
+                document.getElementById('compteurChiffre').textContent="X"+score;
+            }
             
             </script>
+            
     </head>
     <body>
-        <img src='MarioNSMBUDeluxe.png'  id='icon' onclick=saut(sauter); />
-       
+        
+        <div class="d-flex justify-content-start">
+             <img src='piece.png' id="compteur"  class='compteur'; /> 
+             <p id='compteurChiffre' class='compteur'></p>
+        </div>
+        <div class="d-flex justify-content-center">
+            <img src='piece.png' id="piece" ; />
+        </div>
+        <div class="d-flex justify-content-center">
+            <img src='block.png' class="block" ; />
+        </div>
+        <div class="d-flex justify-content-center">  
+            <img src='MarioNSMBUDeluxe.png' class="Mario" id='icon' onclick=saut(); />
+        </div>
+
     </body>
 </html>

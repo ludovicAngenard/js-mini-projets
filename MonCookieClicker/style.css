@@ -1,0 +1,13 @@
+#piece{
+    visibility: hidden;
+}
+#compteur{
+    height: 3em;
+    width: auto;
+}
+.compteur{
+    margin: 2rem 2rem;
+}
+#compteurChiffre{
+    font-size: 1.7rem;
+}
